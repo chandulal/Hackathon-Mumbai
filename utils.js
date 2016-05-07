@@ -6,26 +6,31 @@ var apiUrl = conf.get('apiUrl');
 
 var utils = function (){
    var self = this;
+
+    function send(sender, messageData) {
+        request({
+            url: apiUrl,
+            qs: {access_token: pageToken},
+            method: 'POST',
+            json: {
+                recipient: {id: sender},
+                message: messageData
+            }
+        }, function (error, response) {
+            if (error) {
+                console.log('Error sending message: ', error);
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error);
+            }
+        });
+    }
+
    self.sendTextMessage = function sendTextMessage(sender, text) {
-                    messageData = {
-                      text:text
+        messageData = {
+            text:text
                     };
-                    request({
-                      url: apiUrl,
-                      qs: {access_token:pageToken},
-                      method: 'POST',
-                      json: {
-                        recipient: {id:sender},
-                        message: messageData
-                      }
-                    }, function (error, response) {
-                      if (error) {
-                        console.log('Error sending message: ', error);
-                      } else if (response.body.error) {
-                        console.log('Error: ', response.body.error);
-                      }
-                    });
-                  };
+        send(sender, messageData);
+   };
    self.sendPaymentMessage = function sendPaymentMessage(sender) {
         messageData = {
             "attachment":{
@@ -43,22 +48,8 @@ var utils = function (){
                 }
             }
         };
-        request({
-            url: apiUrl,
-            qs: {access_token:pageToken},
-            method: 'POST',
-            json: {
-                recipient: {id:sender},
-                message: messageData
-            }
-        }, function (error, response) {
-            if (error) {
-                console.log('Error sending message: ', error);
-            } else if (response.body.error) {
-                console.log('Error: ', response.body.error);
-            }
-        });
-    };
+        send(sender, messageData);
+   };
    self.sendProducts = function sendGenericMessage(sender) {
         messageData = {
             "attachment": {
@@ -95,21 +86,7 @@ var utils = function (){
                 }
             }
         };
-        request({
-            url: apiUrl,
-            qs: {access_token:pageToken},
-            method: 'POST',
-            json: {
-                recipient: {id:sender},
-                message: messageData
-            }
-        }, function (error, response) {
-            if (error) {
-                console.log('Error sending message: ', error);
-            } else if (response.body.error) {
-                console.log('Error: ', response.body.error);
-            }
-        });
+        send(sender, messageData);
     };
 };
 
