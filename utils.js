@@ -58,7 +58,7 @@ var utils = function (){
             }
         });
     };
-   self.sendGenericMessage = function sendGenericMessage(sender) {
+   self.sendProducts = function sendGenericMessage(sender) {
         messageData = {
             "attachment": {
                 "type": "template",

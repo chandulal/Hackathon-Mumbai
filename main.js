@@ -3,6 +3,7 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var conf = require('config');
 var utils = require("./utils.js");
+var global = require('./global.js')
 
 var app = express();
 module.exports = app;
@@ -23,24 +24,24 @@ app.get('/webhook/', function (req, res) {
 
 app.post('/webhook/', function (req, res) {
   messaging_events = req.body.entry[0].messaging;
+  
   for (i = 0; i < messaging_events.length; i++) {
     event = req.body.entry[0].messaging[i];
     sender = event.sender.id;
+  
     if (event.message && event.message.text) {
       text = event.message.text;
-      if (text === '@products') {
-        utilsInstance.sendGenericMessage(sender);
+      if (text === global.PRODUCT_COMMAND) {
+        utilsInstance.sendProducts(sender);
         continue;
       }
       else {
-        utilsInstance.sendTextMessage(sender, "Hello! Thanks for connecting with us over Messenger. It looks like you" +
-            "are interested in the classic mobiles.");
+        utilsInstance.sendTextMessage(sender, global.WELCOME_MESSAGE);
       }
     }
     if (event.postback) {
       text = JSON.stringify(event.postback);
       utilsInstance.sendPaymentMessage(sender);
-      
     }
   }
   res.sendStatus(200);
