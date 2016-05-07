@@ -16,3 +16,9 @@ for config you need to install config:
 
 npm install config
 
+----------
+
+To working with json file need jsonfile npm:
+
+    npm install --save jsonfile
+
