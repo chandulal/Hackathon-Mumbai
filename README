@@ -11,3 +11,8 @@ To start node server, run below command
 
 node main.js
 
+----------
+for config you need to install config:
+
+npm install config
+
