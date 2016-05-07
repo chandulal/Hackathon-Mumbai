@@ -6,7 +6,6 @@ module.exports = app;
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-
 app.listen(4567);
 
 var token = "EAAWApW7mI9MBANZCucQGJfGvIdVywwkcyxC0IoXwoKGLh2Di8N8hEU3kURCzkz3vX0FZBy44DKKLubfvQmqY2T4b6cNZAl0rq48v7BGPJV1QIsGVYZCmoKXBOX0ZB6WC9IxBKjQqFhTUGJ3043Ecv9FQLNbttzLogyHmHpS4OawZDZD";
@@ -29,11 +28,14 @@ app.post('/webhook/', function (req, res) {
         sendGenericMessage(sender);
         continue;
       }
-      sendTextMessage(sender, "I received your message: "+ text.substring(0, 200));
+      else {
+        sendTextMessage(sender, "Hello! Thanks for connecting with us over Messenger. It looks like you" +
+            "are interested in the classic mobiles.");
+      }
     }
     if (event.postback) {
       text = JSON.stringify(event.postback);
-      sendTextMessage(sender, "Thank you for purchasing : "+text.substring(0, 200) + ". Your payment method is COD.", token);
+      sendPaymentMessage(sender);
       continue;
     }
   }
@@ -61,6 +63,39 @@ function sendTextMessage(sender, text) {
   });
 }
 
+function sendPaymentMessage(sender) {
+  messageData = {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"Your payment of 10000Rs has been processed",
+        "buttons":[
+          {
+            "type":"postback",
+            "title":"View Payment",
+            "payload":"USER_DEFINED_PAYLOAD"
+          }
+        ]
+      }
+    }
+  };
+  request({
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: {access_token:token},
+    method: 'POST',
+    json: {
+      recipient: {id:sender},
+      message: messageData,
+    }
+  }, function(error, response, body) {
+    if (error) {
+      console.log('Error sending message: ', error);
+    } else if (response.body.error) {
+      console.log('Error: ', response.body.error);
+    }
+  });
+}
 
 function sendGenericMessage(sender) {
   messageData = {
@@ -79,7 +114,7 @@ function sendGenericMessage(sender) {
           }, {
             "type": "postback",
             "title": "Buy",
-            "payload": "Intex Cloud Cube",
+            "payload": "Intex-Cloud-Cube",
           }],
         },{
           "title": "Apple iPhone 6S",
@@ -92,7 +127,7 @@ function sendGenericMessage(sender) {
           },{
             "type": "postback",
             "title": "Buy",
-            "payload": "Apple iPhone 6S",
+            "payload": "Apple-iPhone-6S",
           }],
         }]
       }
