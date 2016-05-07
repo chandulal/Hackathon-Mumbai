@@ -1,35 +1,14 @@
-var request = require('request');
-var conf = require('config');
-
-var pageToken = conf.get('pageToken');
-var apiUrl = conf.get('apiUrl');
+var api = require("./api.js");
+var apiInstance = new api();
 
 var utils = function (){
    var self = this;
-
-    function send(sender, messageData) {
-        request({
-            url: apiUrl,
-            qs: {access_token: pageToken},
-            method: 'POST',
-            json: {
-                recipient: {id: sender},
-                message: messageData
-            }
-        }, function (error, response) {
-            if (error) {
-                console.log('Error sending message: ', error);
-            } else if (response.body.error) {
-                console.log('Error: ', response.body.error);
-            }
-        });
-    }
-
+    
    self.sendTextMessage = function sendTextMessage(sender, text) {
         messageData = {
             text:text
-                    };
-        send(sender, messageData);
+            };
+        apiInstance.send(sender, messageData);
    };
    self.sendPaymentMessage = function sendPaymentMessage(sender) {
         messageData = {
@@ -48,7 +27,7 @@ var utils = function (){
                 }
             }
         };
-        send(sender, messageData);
+        apiInstance.send(sender, messageData);
    };
    self.sendProducts = function sendGenericMessage(sender) {
         messageData = {
@@ -86,7 +65,7 @@ var utils = function (){
                 }
             }
         };
-        send(sender, messageData);
+        apiInstance.send(sender, messageData);
     };
 };
 
