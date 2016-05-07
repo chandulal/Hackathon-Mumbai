@@ -1,0 +1,13 @@
+
+ngrok is require to make your local app to publically available
+
+eg. to expose localhost:4567 to publically available, you need to run below command.
+
+./ngrok http 4567
+
+----------
+
+To start node server, run below command
+
+node main.js
+

@@ -1,6 +1,6 @@
 var express = require('express');
 var request = require('request');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var app = express();
 module.exports = app;
 
@@ -14,7 +14,7 @@ app.get('/webhook/', function (req, res) {
     res.send(req.query['hub.challenge']);
   }
   res.send('Error, wrong validation token');
-})
+});
 
 app.post('/webhook/', function (req, res) {
   messaging_events = req.body.entry[0].messaging;
@@ -23,7 +23,7 @@ app.post('/webhook/', function (req, res) {
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
-      console.log(text)
+      console.log(text);
       sendTextMessage(sender, "I received your message: "+ text.substring(0, 200));
     }
   }
@@ -36,16 +36,16 @@ var token = "EAAWApW7mI9MBANZCucQGJfGvIdVywwkcyxC0IoXwoKGLh2Di8N8hEU3kURCzkz3vX0
 function sendTextMessage(sender, text) {
   messageData = {
     text:text
-  }
+  };
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
     qs: {access_token:token},
     method: 'POST',
     json: {
       recipient: {id:sender},
-      message: messageData,
+      message: messageData
     }
-  }, function(error, response, body) {
+  }, function (error, response) {
     if (error) {
       console.log('Error sending message: ', error);
     } else if (response.body.error) {
