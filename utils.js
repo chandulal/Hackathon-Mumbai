@@ -2,6 +2,7 @@ var request = require('request');
 var conf = require('config');
 
 var pageToken = conf.get('pageToken');
+var apiUrl = conf.get('apiUrl');
 
 var utils = function (){
    var self = this;
@@ -10,7 +11,7 @@ var utils = function (){
                       text:text
                     };
                     request({
-                      url: 'https://graph.facebook.com/v2.6/me/messages',
+                      url: apiUrl,
                       qs: {access_token:pageToken},
                       method: 'POST',
                       json: {
@@ -43,7 +44,7 @@ var utils = function (){
             }
         };
         request({
-            url: 'https://graph.facebook.com/v2.6/me/messages',
+            url: apiUrl,
             qs: {access_token:pageToken},
             method: 'POST',
             json: {
@@ -95,7 +96,7 @@ var utils = function (){
             }
         };
         request({
-            url: 'https://graph.facebook.com/v2.6/me/messages',
+            url: apiUrl,
             qs: {access_token:pageToken},
             method: 'POST',
             json: {
