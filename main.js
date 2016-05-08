@@ -44,12 +44,7 @@ app.post('/webhook/', function (req, res) {
       payload = postbackJson.payload.split(":");
       payloadType = payload[0];
       product = payload[1];
-      if(payloadType === global.PAYMENTS_PAYLOAD){
         utilsInstance.sendPayloadMessage(sender, payloadType, product);
-      }
-      else if(payloadType === global.RECEIPTS_PAYLOAD){
-        utilsInstance.sendPayloadMessage(sender, payloadType, product);
-      }
     }
   }
   res.sendStatus(200);
