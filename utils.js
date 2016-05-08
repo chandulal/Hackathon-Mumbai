@@ -8,7 +8,7 @@ var apiInstance = new api();
 var utils = function (){
    var self = this;
     
-   self.sendTextMessage = function sendTextMessage(sender, text) {
+   self.welcomeMessage = function welcomeMessage(sender, text) {
         messageData = {
             text:text
             };
@@ -16,9 +16,9 @@ var utils = function (){
    };
     
    self.sendPayloadMessage = function sendPaymentMessage(sender, payloadType, product) {
-       var paymentDataPath = conf.get(payloadType);
-       var paymentJson = paymentDataPath + product + ".json";
-       jsonfile.readFile(paymentJson, function (err, jsonObj) {
+       var payloadPath = conf.get(payloadType);
+       var payloadJson = payloadPath + product + ".json";
+       jsonfile.readFile(payloadJson, function (err, jsonObj) {
            apiInstance.send(sender, jsonObj);
        });
    };

@@ -36,7 +36,7 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       else {
-        utilsInstance.sendTextMessage(sender, global.WELCOME_MESSAGE);
+        utilsInstance.welcomeMessage(sender, global.WELCOME_MESSAGE);
       }
     }
     if (event.postback) {
