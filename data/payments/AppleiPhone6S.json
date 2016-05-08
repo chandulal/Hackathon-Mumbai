@@ -3,12 +3,12 @@
     "type":"template",
     "payload":{
       "template_type":"button",
-      "text":"Your payment of 10000Rs has been processed",
+      "text":"Your order for Apple iPhone 6S successfully processed. Your payment is 48000.",
       "buttons":[
         {
           "type":"postback",
-          "title":"View Payment",
-          "payload":"USER_DEFINED_PAYLOAD"
+          "title":"View Receipts",
+          "payload":"receipts:AppleiPhone6S"
         }
       ]
     }

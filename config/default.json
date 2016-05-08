@@ -2,6 +2,7 @@
   "pageToken" :"EAAWApW7mI9MBANZCucQGJfGvIdVywwkcyxC0IoXwoKGLh2Di8N8hEU3kURCzkz3vX0FZBy44DKKLubfvQmqY2T4b6cNZAl0rq48v7BGPJV1QIsGVYZCmoKXBOX0ZB6WC9IxBKjQqFhTUGJ3043Ecv9FQLNbttzLogyHmHpS4OawZDZD",
   "apiToken" : "12345",
   "apiUrl" : "https://graph.facebook.com/v2.6/me/messages",
-  "paymentDataPath": "./data/payments/",
+  "payments": "./data/payments/",
+  "receipts": "./data/receipts/",
   "productsPath" : "./data/products/"
 }

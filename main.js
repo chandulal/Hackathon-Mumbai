@@ -40,8 +40,16 @@ app.post('/webhook/', function (req, res) {
       }
     }
     if (event.postback) {
-      text = JSON.stringify(event.postback);
-      utilsInstance.sendPaymentMessage(sender);
+      postbackJson = event.postback;
+      payload = postbackJson.payload.split(":");
+      payloadType = payload[0];
+      product = payload[1];
+      if(payloadType === global.PAYMENTS_PAYLOAD){
+        utilsInstance.sendPayloadMessage(sender, payloadType, product);
+      }
+      else if(payloadType === global.RECEIPTS_PAYLOAD){
+        utilsInstance.sendPayloadMessage(sender, payloadType, product);
+      }
     }
   }
   res.sendStatus(200);

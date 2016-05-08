@@ -1,0 +1,16 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Your order for Intex Cloud Cube successfully processed. Your payment is 8000.",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"View Receipts",
+          "payload":"receipts:IntexCloudCube"
+        }
+      ]
+    }
+  }
+}

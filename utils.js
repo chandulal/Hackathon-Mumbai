@@ -2,7 +2,6 @@ var api = require("./api.js");
 var jsonfile = require('jsonfile');
 var conf = require('config');
 
-var paymentDataPath = conf.get('paymentDataPath');
 var productsPath = conf.get('productsPath');
 var apiInstance = new api();
 
@@ -16,8 +15,9 @@ var utils = function (){
         apiInstance.send(sender, messageData);
    };
     
-   self.sendPaymentMessage = function sendPaymentMessage(sender) {
-       var paymentJson = paymentDataPath + "payment.json";
+   self.sendPayloadMessage = function sendPaymentMessage(sender, payloadType, product) {
+       var paymentDataPath = conf.get(payloadType);
+       var paymentJson = paymentDataPath + product + ".json";
        jsonfile.readFile(paymentJson, function (err, jsonObj) {
            apiInstance.send(sender, jsonObj);
        });

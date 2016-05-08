@@ -1,0 +1,48 @@
+{
+  "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type": "receipt",
+      "recipient_name": "Chandu Kavar",
+      "order_number": "12345678902",
+      "currency": "INR",
+      "payment_method": "Visa 2345",
+      "order_url": "http://petersapparel.parseapp.com/order?order_id=123456",
+      "timestamp": "1428444852",
+      "elements": [
+        {
+          "title": "Apple iPhone 6S",
+          "subtitle": "Think different.",
+          "quantity": 1,
+          "price": 48000,
+          "currency": "INR",
+          "image_url": "http://cdn.images.express.co.uk/img/dynamic/59/590x/Apple-iPhone-6s-Apple-iPhone-6s-Review-Woman-Gets-iPhone-6s-Early-ATT-iPhone-6s-Smartphone-iPhone-Smartphone-Review-Apple-ATT-iP-607026.jpg"
+        }
+      ],
+      "address": {
+        "street_1": "HollyHox Residency",
+        "street_2": "MA 14",
+        "city": "Gurgaon",
+        "postal_code": "122002",
+        "state": "Hariyana",
+        "country": "India"
+      },
+      "summary": {
+        "subtotal": 48000.00,
+        "shipping_cost": 0.00,
+        "total_tax": 100.00,
+        "total_cost": 48100
+      },
+      "adjustments": [
+        {
+          "name": "New Customer Discount",
+          "amount": 20
+        },
+        {
+          "name": "10 Rs Off Coupon",
+          "amount": 10
+        }
+      ]
+    }
+  }
+}

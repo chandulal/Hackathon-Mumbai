@@ -1,0 +1,48 @@
+{
+  "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type": "receipt",
+      "recipient_name": "Chandu Kavar",
+      "order_number": "12345678903",
+      "currency": "INR",
+      "payment_method": "Visa 2345",
+      "order_url": "http://petersapparel.parseapp.com/order?order_id=123456",
+      "timestamp": "1428444852",
+      "elements": [
+        {
+          "title": "Intex Cloud Cube",
+          "subtitle": "Lets make the world better.",
+          "quantity": 1,
+          "price": 8000,
+          "currency": "INR",
+          "image_url": "http://www.themobileindian.com/images/new_launches/2015/05/5503/Cloud-M5-II.jpg"
+        }
+      ],
+      "address": {
+        "street_1": "HollyHox Residency",
+        "street_2": "MA 14",
+        "city": "Gurgaon",
+        "postal_code": "122002",
+        "state": "Hariyana",
+        "country": "India"
+      },
+      "summary": {
+        "subtotal": 8000.00,
+        "shipping_cost": 0.00,
+        "total_tax": 10.00,
+        "total_cost": 8010
+      },
+      "adjustments": [
+        {
+          "name": "New Customer Discount",
+          "amount": 20
+        },
+        {
+          "name": "10 Rs Off Coupon",
+          "amount": 10
+        }
+      ]
+    }
+  }
+}

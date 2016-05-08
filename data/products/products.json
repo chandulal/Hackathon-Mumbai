@@ -14,7 +14,7 @@
         }, {
           "type": "postback",
           "title": "Buy",
-          "payload": "Intex-Cloud-Cube"
+          "payload": "payments:IntexCloudCube"
         }]
       },{
         "title": "Apple iPhone 6S",
@@ -27,7 +27,7 @@
         },{
           "type": "postback",
           "title": "Buy",
-          "payload": "Apple-iPhone-6S"
+          "payload": "payments:AppleiPhone6S"
         }]
       }]
     }
