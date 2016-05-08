@@ -22,6 +22,8 @@ var utils = function (){
        var payloadJson = payloadPath + product + ".json";
        jsonfile.readFile(payloadJson, function (err, jsonObj) {
            if(payloadType === global.RECEIPTS_PAYLOAD) {
+               var profile  = apiInstance.getUserProfile(sender);
+               console.log(sender);
                jsonObj.attachment.payload.order_number = math.randomInt(10000,1000000);
            }
            apiInstance.send(sender, jsonObj);
