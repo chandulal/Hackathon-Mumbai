@@ -1,6 +1,8 @@
 var api = require("./api.js");
 var jsonfile = require('jsonfile');
+var math = require('mathjs');
 var conf = require('config');
+var global = require('./global.js')
 
 var productsPath = conf.get('productsPath');
 var apiInstance = new api();
@@ -19,6 +21,9 @@ var utils = function (){
        var payloadPath = conf.get(payloadType);
        var payloadJson = payloadPath + product + ".json";
        jsonfile.readFile(payloadJson, function (err, jsonObj) {
+           if(payloadType === global.RECEIPTS_PAYLOAD) {
+               jsonObj.attachment.payload.order_number = math.randomInt(10000,1000000);
+           }
            apiInstance.send(sender, jsonObj);
        });
    };

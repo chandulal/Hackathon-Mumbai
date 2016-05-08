@@ -22,3 +22,9 @@ To working with json file need jsonfile npm:
 
     npm install --save jsonfile
 
+-----------
+
+To generate random number install:
+
+    npm install mathjs
+
