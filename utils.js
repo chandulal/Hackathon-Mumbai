@@ -10,7 +10,7 @@ var apiInstance = new api();
 var utils = function (){
    var self = this;
     
-   self.welcomeMessage = function welcomeMessage(sender, text) {
+   self.sendTextMessage = function sendTextMessage(sender, text) {
         messageData = {
             text:text
             };
@@ -30,11 +30,23 @@ var utils = function (){
        });
    };
     
-   self.sendProducts = function sendProducts(sender) {
-       var productJson = productsPath + "products.json";
-       jsonfile.readFile(productJson, function (err, jsonObj) {
-           apiInstance.send(sender, jsonObj);
-       });
+   self.generateReplyForMobileCommand = function generateReplyForMobileCommand(sender, mobileNumber) {
+
+       function isMobileNumberIsRegistered(mobileNumber) {
+            if(mobileNumber == "9537171203") return true;
+            else return false;
+       }
+
+       if(isMobileNumberIsRegistered(mobileNumber.trim())) {
+           // var productJson = productsPath + "products.json";
+           // jsonfile.readFile(productJson, function (err, jsonObj) {
+           //     apiInstance.send(sender, jsonObj);
+           // });
+           self.sendTextMessage(sender, global.OTP_MESSAGE)
+       }
+       else {
+           self.sendTextMessage(sender, global.MOBILE_NOT_REGISTERED_MESSAGE)
+       }
     };
 };
 

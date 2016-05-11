@@ -30,13 +30,15 @@ app.post('/webhook/', function (req, res) {
     sender = event.sender.id;
   
     if (event.message && event.message.text) {
-      text = event.message.text;
-      if (text === global.PRODUCT_COMMAND) {
-        utilsInstance.sendProducts(sender);
+      text = event.message.text.split(" ");
+      command = text[0];
+      details = text[1];
+      if (command === global.MOBILE_NUMBER_COMMAND) {
+        utilsInstance.generateReplyForMobileCommand(sender, details.toString());
         continue;
       }
       else {
-        utilsInstance.welcomeMessage(sender, global.WELCOME_MESSAGE);
+        utilsInstance.sendTextMessage(sender, global.WELCOME_MESSAGE);
       }
     }
     if (event.postback) {
