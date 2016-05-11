@@ -17,15 +17,10 @@ var utils = function (){
         apiInstance.send(sender, messageData);
    };
     
-   self.sendPayloadMessage = function sendPaymentMessage(sender, payloadType, product) {
-       var payloadPath = conf.get(payloadType);
-       var payloadJson = payloadPath + product + ".json";
+   self.sendPayloadMessage = function sendPaymentMessage(sender, payload) {
+       
+       var payloadJson = dataPath + payload + ".json";
        jsonfile.readFile(payloadJson, function (err, jsonObj) {
-           if(payloadType === global.RECEIPTS_PAYLOAD) {
-               var profile  = apiInstance.getUserProfile(sender);
-               console.log(sender);
-               jsonObj.attachment.payload.order_number = math.randomInt(10000,1000000);
-           }
            apiInstance.send(sender, jsonObj);
        });
    };
@@ -37,16 +32,11 @@ var utils = function (){
             else return false;
        }
 
-       if(isMobileNumberIsRegistered(mobileNumber.trim())) {
-           // var productJson = dataPath + "products.json";
-           // jsonfile.readFile(productJson, function (err, jsonObj) {
-           //     apiInstance.send(sender, jsonObj);
-           // });
+       if(isMobileNumberIsRegistered(mobileNumber.trim())) 
            self.sendTextMessage(sender, global.OTP_MESSAGE)
-       }
-       else {
+       else 
            self.sendTextMessage(sender, global.MOBILE_NOT_REGISTERED_MESSAGE)
-       }
+       
     };
 
     self.generateReplyForOTPCommand = function generateReplyForOTPCommand(sender, otp) {

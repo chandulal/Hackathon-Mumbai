@@ -47,10 +47,8 @@ app.post('/webhook/', function (req, res) {
     }
     if (event.postback) {
       postbackJson = event.postback;
-      payload = postbackJson.payload.split(":");
-      payloadType = payload[0];
-      product = payload[1];
-        utilsInstance.sendPayloadMessage(sender, payloadType, product);
+      payload = postbackJson.payload
+      utilsInstance.sendPayloadMessage(sender, payload);
     }
   }
   res.sendStatus(200);

@@ -1,0 +1,16 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Your Balance is 25000 Rs.",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Back to Main Menu",
+          "payload":"homeMenu"
+        }
+      ]
+    }
+  }
+}
