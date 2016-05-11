@@ -3,22 +3,22 @@
     "type":"template",
     "payload":{
       "template_type":"button",
-      "text":"What do you want to do ?",
+      "text":"Select any option for transfer: ",
       "buttons":[
         {
           "type":"postback",
-          "title":"Check Balance",
-          "payload":"checkBalance"
+          "title":"Same Bank",
+          "payload":"sameBankPayees"
         },
         {
           "type":"postback",
-          "title":"Transfer",
-          "payload":"transferBalance"
+          "title":"Other Bank",
+          "payload":"otherBankTransfer"
         },
         {
           "type":"postback",
-          "title":"Services",
-          "payload":"recharge"
+          "title":"Manage Payee",
+          "payload":"managePayee"
         }
       ]
     }

@@ -18,7 +18,6 @@ var utils = function (){
    };
     
    self.sendPayloadMessage = function sendPaymentMessage(sender, payload) {
-       
        var payloadJson = dataPath + payload + ".json";
        jsonfile.readFile(payloadJson, function (err, jsonObj) {
            apiInstance.send(sender, jsonObj);

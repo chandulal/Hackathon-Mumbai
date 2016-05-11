@@ -3,22 +3,22 @@
     "type":"template",
     "payload":{
       "template_type":"button",
-      "text":"What do you want to do ?",
+      "text":"Select payee or add: ",
       "buttons":[
         {
           "type":"postback",
-          "title":"Check Balance",
-          "payload":"checkBalance"
+          "title":"Abhijit",
+          "payload":"abhijit"
         },
         {
           "type":"postback",
-          "title":"Transfer",
-          "payload":"transferBalance"
+          "title":"Aniket",
+          "payload":"aniket"
         },
         {
           "type":"postback",
-          "title":"Services",
-          "payload":"recharge"
+          "title":"Add Payee",
+          "payload":"addPayee"
         }
       ]
     }
