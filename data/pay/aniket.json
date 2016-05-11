@@ -1,0 +1,3 @@
+{
+  "text" : "Enter amount and remarks using: \n@transfer <amount> '<remarks>'\n (eg. @transfer 5000 'for rent')"
+}

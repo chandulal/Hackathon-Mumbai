@@ -23,7 +23,15 @@ var utils = function (){
            apiInstance.send(sender, jsonObj);
        });
    };
-    
+
+   self.sendSpecificPayloadMessage = function sendSpecificPayloadMessage(sender, payloadType, user) {
+       var payloadPath = conf.get(payloadType);
+       var payloadJson = payloadPath + user + ".json";
+       jsonfile.readFile(payloadJson, function (err, jsonObj) {
+           apiInstance.send(sender, jsonObj);
+       });
+   };
+
    self.generateReplyForMobileCommand = function generateReplyForMobileCommand(sender, mobileNumber) {
 
        function isMobileNumberIsRegistered(mobileNumber) {
@@ -36,6 +44,14 @@ var utils = function (){
        else 
            self.sendTextMessage(sender, global.MOBILE_NOT_REGISTERED_MESSAGE)
        
+    };
+
+    self.generateReplyForTransferCommand = function generateReplyForTransferCommand(sender, amountAndRemarks) {
+
+        // var data = amountAndRemarks.trim().split(" ");
+        // var amount = data[0];
+        // var remarks = data[1].substring(1, str.length - 1);
+        self.sendTextMessage(sender, global.OTP_MESSAGE)
     };
 
     self.generateReplyForOTPCommand = function generateReplyForOTPCommand(sender, otp) {
@@ -51,8 +67,10 @@ var utils = function (){
                 apiInstance.send(sender, jsonObj);
             });
         }
-        else
-            self.sendTextMessage(sender, global.OTP_INVALID_MESSAGE);
+        else if(otp.trim() === "54321"){
+            self.sendPayloadMessage(sender, global.PAYMENT_PAYLOAD)
+        }
+        else self.sendTextMessage(sender, global.OTP_INVALID_MESSAGE);
     };
 };
 

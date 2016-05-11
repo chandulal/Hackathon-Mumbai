@@ -30,15 +30,21 @@ app.post('/webhook/', function (req, res) {
     sender = event.sender.id;
   
     if (event.message && event.message.text) {
-      text = event.message.text.split(" ");
-      command = text[0];
-      details = text[1];
+
+      text = event.message.text
+      command = text.substr(0,text.indexOf(' '));
+      details = text.substr(text.indexOf(' ')+1);
+
       if (command === global.MOBILE_NUMBER_COMMAND) {
-        utilsInstance.generateReplyForMobileCommand(sender, details.toString());
+        utilsInstance.generateReplyForMobileCommand(sender, details);
         continue;
       }
       else if (command === global.OTP_COMMAND) {
-        utilsInstance.generateReplyForOTPCommand(sender, details.toString());
+        utilsInstance.generateReplyForOTPCommand(sender, details);
+        continue;
+      }
+      else if (command === global.TRANSFER_COMMAND) {
+        utilsInstance.generateReplyForTransferCommand(sender, details);
         continue;
       }
       else {
@@ -48,7 +54,14 @@ app.post('/webhook/', function (req, res) {
     if (event.postback) {
       postbackJson = event.postback;
       payload = postbackJson.payload
-      utilsInstance.sendPayloadMessage(sender, payload);
+      console.log(payload)
+      if(payload.indexOf(":") > -1){
+        payload = postbackJson.payload.split(":");
+        payloadType = payload[0];
+        user = payload[1];
+        console.log(payloadType + user);
+        utilsInstance.sendSpecificPayloadMessage(sender, payloadType, user);
+      }else utilsInstance.sendPayloadMessage(sender, payload);
     }
   }
   res.sendStatus(200);

@@ -8,12 +8,12 @@
         {
           "type":"postback",
           "title":"Abhijit",
-          "payload":"abhijit"
+          "payload":"payees:abhijit"
         },
         {
           "type":"postback",
           "title":"Aniket",
-          "payload":"aniket"
+          "payload":"payees:aniket"
         },
         {
           "type":"postback",

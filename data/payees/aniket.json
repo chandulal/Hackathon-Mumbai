@@ -1,0 +1,16 @@
+{
+  "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type": "button",
+      "text": "You are paying to Aniket and his account number is 327492749274",
+      "buttons": [
+        {
+          "type": "postback",
+          "title": "Next",
+          "payload": "pay:aniket"
+        }
+      ]
+    }
+  }
+}

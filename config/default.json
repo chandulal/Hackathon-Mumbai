@@ -5,5 +5,7 @@
   "userProfileUrl" : "https://graph.facebook.com/v2.6/",
   "payments": "./data/payments/",
   "receipts": "./data/receipts/",
+  "payees": "./data/payees/",
+  "pay": "./data/pay/",
   "dataPath" : "./data/"
 }
