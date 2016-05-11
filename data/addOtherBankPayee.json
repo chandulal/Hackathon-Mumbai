@@ -1,0 +1,3 @@
+{
+  "text" : "Enter payee details using: \n@add_payee <Account number> <IFSC Code> <Name> <Mobile> \n (eg. @add_payee 9354532453252 UTA004 Chandu 0123456789"
+}

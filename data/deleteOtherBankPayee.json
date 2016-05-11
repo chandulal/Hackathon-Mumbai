@@ -1,0 +1,21 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Select payee to delete",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Anurag",
+          "payload":"payeeDeleted"
+        },
+        {
+          "type":"postback",
+          "title":"Vaibhav",
+          "payload":"payeeDeleted"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Select an option: ",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Same bank Customer",
+          "payload":"deleteSameBankPayee"
+        },
+        {
+          "type":"postback",
+          "title":"Other bank Customer",
+          "payload":"deleteOtherBankPayee"
+        }
+      ]
+    }
+  }
+}
