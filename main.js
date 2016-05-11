@@ -37,6 +37,10 @@ app.post('/webhook/', function (req, res) {
         utilsInstance.generateReplyForMobileCommand(sender, details.toString());
         continue;
       }
+      else if (command === global.OTP_COMMAND) {
+        utilsInstance.generateReplyForOTPCommand(sender, details.toString());
+        continue;
+      }
       else {
         utilsInstance.sendTextMessage(sender, global.WELCOME_MESSAGE);
       }

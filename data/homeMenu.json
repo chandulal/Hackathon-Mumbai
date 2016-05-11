@@ -1,0 +1,26 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"What you want to do ?",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Check Balance",
+          "payload":"checkBalance"
+        },
+        {
+          "type":"postback",
+          "title":"Transfer",
+          "payload":"transferBalance"
+        },
+        {
+          "type":"postback",
+          "title":"Services",
+          "payload":"recharge"
+        }
+      ]
+    }
+  }
+}
