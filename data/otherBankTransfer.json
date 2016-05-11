@@ -1,0 +1,26 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Select payee or add: ",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Anurag",
+          "payload":"payees:anurag"
+        },
+        {
+          "type":"postback",
+          "title":"Vaibhav",
+          "payload":"payees:vaibhav"
+        },
+        {
+          "type":"postback",
+          "title":"Add Payee",
+          "payload":"addPayee"
+        }
+      ]
+    }
+  }
+}

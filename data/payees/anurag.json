@@ -1,0 +1,16 @@
+{
+  "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type": "button",
+      "text": "You are paying to \n Name: Abhijit \n Account number: 732874923492 \n IFSC Code: UAC00045 \n  Branch: Powai,Mumbai",
+      "buttons": [
+        {
+          "type": "postback",
+          "title": "Next",
+          "payload": "pay:anurag"
+        }
+      ]
+    }
+  }
+}

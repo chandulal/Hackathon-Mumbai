@@ -1,0 +1,16 @@
+{
+  "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type": "button",
+      "text": "You are paying to \n Name: Vaibhav \n Account number: 239472974924 \n IFSC Code: UAC00023 \n  Branch: Gurgaon,Hariyana",
+      "buttons": [
+        {
+          "type": "postback",
+          "title": "Next",
+          "payload": "pay:vaibhav"
+        }
+      ]
+    }
+  }
+}
