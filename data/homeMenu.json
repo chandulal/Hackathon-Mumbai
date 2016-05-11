@@ -1,0 +1,41 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"What you want to do ?",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Check Balance",
+          "payload":"checkBalance"
+        },
+        {
+          "type":"postback",
+          "title":"Send Statement to Email",
+          "payload":"sendStatement"
+        },
+        {
+          "type":"postback",
+          "title":"Transfer",
+          "payload":"transferBalance"
+        },
+        {
+          "type":"postback",
+          "title":"Recharge",
+          "payload":"recharge"
+        },
+        {
+          "type":"postback",
+          "title":"Pay Bills",
+          "payload":"payBills"
+        },
+        {
+          "type":"postback",
+          "title":"View Payback Points",
+          "payload":"viewPayback"
+        }
+      ]
+    }
+  }
+}
