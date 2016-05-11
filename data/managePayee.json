@@ -1,0 +1,21 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Select an option: ",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Add Payee",
+          "payload":"addPayee"
+        },
+        {
+          "type":"postback",
+          "title":"Delete Payee",
+          "payload":"deletePayee"
+        }
+      ]
+    }
+  }
+}

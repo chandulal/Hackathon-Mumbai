@@ -44,7 +44,11 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       else if (command === global.TRANSFER_COMMAND) {
-        utilsInstance.generateReplyForTransferCommand(sender, details);
+        utilsInstance.sendPayloadMessage(sender, details);
+        continue;
+      }
+      else if (command === global.ADD_PAYEE_COMMAND) {
+        utilsInstance.sendPayloadMessage(sender, global.PAYEE_SUCCESS_PAYLOAD);
         continue;
       }
       else {
