@@ -51,6 +51,10 @@ app.post('/webhook/', function (req, res) {
         utilsInstance.sendPayloadMessage(sender, global.PAYEE_SUCCESS_PAYLOAD);
         continue;
       }
+      else if (command === global.RECHARGE_COMMAND) {
+        utilsInstance.sendPayloadMessage(sender, global.RECHARGE_SUCCESS_PAYLOAD);
+        continue;
+      }
       else {
         utilsInstance.sendTextMessage(sender, global.WELCOME_MESSAGE);
       }
