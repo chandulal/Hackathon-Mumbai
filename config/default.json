@@ -9,6 +9,6 @@
   "payees": "./data/payees/",
   "pay": "./data/pay/",
   "dataPath" : "./data/",
-  "senderForBank":"846683535438201",
+  "senderForBank":846683535438201,
   "senderForGoIndia":"848098575296697"
 }
