@@ -1,0 +1,26 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Select an option ?",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Electricity",
+          "payload":"electricityBills"
+        },
+        {
+          "type":"postback",
+          "title":"Gas",
+          "payload":"gasBills"
+        },
+        {
+          "type":"postback",
+          "title":"Postpaid",
+          "payload":"postpaidBills"
+        }
+      ]
+    }
+  }
+}

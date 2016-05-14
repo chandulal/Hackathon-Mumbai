@@ -55,6 +55,10 @@ app.post('/webhook/', function (req, res) {
         utilsInstance.sendPayloadMessage(sender, global.RECHARGE_SUCCESS_PAYLOAD);
         continue;
       }
+      else if (command === global.PAY_ELECTRICITY_BILLS_COMMAND || command === global.PAY_POSTPAID_BILLS_COMMAND ||command === global.PAY_GAS_BILLS_COMMAND) {
+        utilsInstance.sendPayloadMessage(sender, global.PAYBILL_SUCCESS_PAYLOAD);
+        continue;
+      }
       else {
         utilsInstance.sendTextMessage(sender, global.WELCOME_MESSAGE);
       }
