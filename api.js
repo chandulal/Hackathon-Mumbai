@@ -3,14 +3,14 @@ var conf = require('config');
 
 var apiUrl = conf.get('apiUrl');
 var userProfileUrl = conf.get('userProfileUrl');
-var pageToken = conf.get('pageToken');
+var pageTokenForBank = conf.get('pageTokenForBank');
 
 var api = function () {
     var self = this;
     self.send = function send(sender, messageData) {
         request({
             url: apiUrl,
-            qs: {access_token: pageToken},
+            qs: {access_token: pageTokenForBank},
             method: 'POST',
             json: {
                 recipient: {id: sender},
@@ -26,7 +26,7 @@ var api = function () {
     }
     self.getUserProfile = function getUserProfile(sender) {
         request({
-            url: userProfileUrl + sender + "?fields=first_name,last_name&amp;access_token=" + pageToken,
+            url: userProfileUrl + sender + "?fields=first_name,last_name&amp;access_token=" + pageTokenForBank,
             method: 'GET'
         }, function (error, response) {
             if (error) {

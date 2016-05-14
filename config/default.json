@@ -1,5 +1,5 @@
 {
-  "pageToken" :"EAAWApW7mI9MBAMi2SbkDkCE0vExMDLqf2TAZCWm8byjjRkaU446bW72OnDZAxJnyUrMWU7NjUXAcldxU5IePxbRPZAOyN0gKBPhFPXiLAD9a7ZCCuwo3p6TOOJPcQe8rQVZCy0quXucUsYwTGYe6ZAFYriNVZAXO8Dq2ejXeZCK2QgZDZD",
+  "pageTokenForBank" :"EAAWApW7mI9MBAIDwdbvU8jmwf3RZCMcvUqgtemPeZClOeG5eLvCRo27md0U8OPVoqABtGGf8ZCGAdJDvKtL7PTgDGtq8Tg3QZBhF5ZAC74htn9YK0jhbHquXKJnEczQyPDyDupEzZB9FYg8AsOmpsewdAdZCEmgW5nK9z9d1FXWnQZDZD",
   "apiToken" : "12345",
   "apiUrl" : "https://graph.facebook.com/v2.6/me/messages",
   "userProfileUrl" : "https://graph.facebook.com/v2.6/",
