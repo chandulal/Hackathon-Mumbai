@@ -18,7 +18,7 @@
         {
           "type":"postback",
           "title":"Services",
-          "payload":"recharge"
+          "payload":"services"
         }
       ]
     }

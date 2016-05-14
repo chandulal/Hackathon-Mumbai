@@ -1,0 +1,21 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Select an option: ",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Recharge",
+          "payload":"recharge"
+        },
+        {
+          "type":"postback",
+          "title":"Pay Bills",
+          "payload":"payBills"
+        }
+      ]
+    }
+  }
+}
