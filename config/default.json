@@ -1,5 +1,6 @@
 {
   "pageTokenForBank" :"EAAWApW7mI9MBAIDwdbvU8jmwf3RZCMcvUqgtemPeZClOeG5eLvCRo27md0U8OPVoqABtGGf8ZCGAdJDvKtL7PTgDGtq8Tg3QZBhF5ZAC74htn9YK0jhbHquXKJnEczQyPDyDupEzZB9FYg8AsOmpsewdAdZCEmgW5nK9z9d1FXWnQZDZD",
+  "pageTokenForGoIndia":"EAAWApW7mI9MBAAgpagsvfOduvkXZCYcsAvE4ePXcwneEZCDp9DATTgeFMQOiOTd9ms2B1Oa1rPNM6BHJhmZBKJr4ZBw4bbaTaj0DSRdmyIXkVXxFnpQpeGZBowb5H0QYquW5LoFESiQNn3RCThoIEneZB45h8ZBe2N7KsOzVIvP2gZDZD",
   "apiToken" : "12345",
   "apiUrl" : "https://graph.facebook.com/v2.6/me/messages",
   "userProfileUrl" : "https://graph.facebook.com/v2.6/",
@@ -7,5 +8,7 @@
   "receipts": "./data/receipts/",
   "payees": "./data/payees/",
   "pay": "./data/pay/",
-  "dataPath" : "./data/"
+  "dataPath" : "./data/",
+  "senderForBank":"846683535438201",
+  "senderForGoIndia":"848098575296697"
 }

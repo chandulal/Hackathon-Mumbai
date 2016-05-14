@@ -4,6 +4,8 @@ var math = require('mathjs');
 var conf = require('config');
 var global = require('./global.js')
 
+var pageTokenForBank = conf.get('pageTokenForBank');
+var pageTokenForGoIndia = conf.get('pageTokenForGoIndia');
 var dataPath = conf.get('dataPath');
 var apiInstance = new api();
 
