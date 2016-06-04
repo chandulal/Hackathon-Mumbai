@@ -1,0 +1,49 @@
+{
+  "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type": "generic",
+      "elements": [{
+        "title": "6E-965 04:45 to 06:20",
+        "subtitle": "9722 INR",
+        "image_url": "https://entecity.com/news/files/2013/03/indigo-airlines-pictures.jpg",
+        "buttons": [{
+          "type": "web_url",
+          "url": "https://www.goindigo.in/",
+          "title": "For more details"
+        }, {
+          "type": "postback",
+          "title": "Book this flight",
+          "payload": "flight:6e965"
+        }]
+      },{
+        "title": "6E-962 05:45 to 07:20",
+        "subtitle": "19722 INR",
+        "image_url": "http://media2.s-nbcnews.com/i/newscms/2014_11/243236/140311-malaysian-jet-js_569769d7b8ae6e72ea708d78551d38cf.jpg",
+        "buttons": [{
+          "type": "web_url",
+          "url": "https://www.goindigo.in/",
+          "title": "For more details"
+        }, {
+          "type": "postback",
+          "title": "Book this flight",
+          "payload": "flight:6e962"
+        }]
+      },
+        {
+          "title": "6E-963 06:45 to 09:20",
+          "subtitle": "6700 INR",
+          "image_url": "https://entecity.com/news/files/2013/03/indigo-airlines-pictures.jpg",
+          "buttons": [{
+            "type": "web_url",
+            "url": "https://www.goindigo.in/",
+            "title": "For more details"
+          }, {
+            "type": "postback",
+            "title": "Book this flight",
+            "payload": "flight:6e963"
+          }]
+        }]
+    }
+  }
+}

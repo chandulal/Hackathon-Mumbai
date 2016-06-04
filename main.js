@@ -117,7 +117,11 @@ app.post('/webhook/', function (req, res) {
       command = text.substr(0, text.indexOf(' '));
       details = text.substr(text.indexOf(' ') + 1);
 
-      if (command === global.BOOK_FLIGHT_COMMAND) {
+      if (command === global.ONE_WAY_COMMAND) {
+        utilsInstance.sendSpecificPayloadMessage(sender, pageTokenForGoIndia, global.GOINDIA_PATH, global.GOINDIA_FLIGHT_LIST);
+        continue;
+      }
+      else if (command === global.BOOK_FLIGHT_COMMAND) {
         utilsInstance.sendTextMessage(sender, pageTokenForGoIndia, global.BOOK_FLIGHT_TOKEN_MESSAGE);
         utilsInstance.sendTextMessage(senderForBank, pageTokenForBank, global.OTP_MESSAGE);
         continue;
