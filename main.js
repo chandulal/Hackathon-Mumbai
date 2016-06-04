@@ -19,8 +19,35 @@ var senderForGoIndia = conf.get('senderForGoIndia');
 var pageTokenForBank = conf.get('pageTokenForBank');
 var pageTokenForGoIndia = conf.get('pageTokenForGoIndia');
 
-
 var utilsInstance = new utils();
+
+// //my sql connection
+// var mysql      = require('mysql');
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : '',
+//   database : 'hackm'
+// });
+//
+// connection.connect(function(err){
+//   if(!err) {
+//     console.log("Database is connected ...");
+//   } else {
+//     console.log("Error connecting database ...");
+//   }
+// });
+//
+// app.get("/",function(req,res){
+//   connection.query('SELECT * from transaction_log', function(err, rows, fields) {
+//     connection.end();
+//     if (!err)
+//       console.log('The solution is: ', rows);
+//     else
+//       console.log('Error while performing Query.');
+//   });
+// });
+
 
 app.get('/webhook/', function (req, res) {
   if (req.query['hub.verify_token'] === apiToken) {
@@ -36,7 +63,7 @@ app.post('/webhook/', function (req, res) {
     event = req.body.entry[0].messaging[i];
     sender = event.sender.id;
 
-  if(sender !== senderForBank) {
+  if(sender == senderForBank) {
     if (event.message && event.message.text) {
       text = event.message.text
       command = text.substr(0, text.indexOf(' '));

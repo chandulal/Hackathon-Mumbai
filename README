@@ -33,3 +33,8 @@ Need to run below command for page token, if page token changes:
 
 curl -ik -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=<page token>"
 
+------------
+To start mysql : mysql.server start
+To stop mysql : mysql.server stop
+
+-------------
