@@ -123,10 +123,23 @@ app.post('/webhook/', function (req, res) {
         continue;
       }
       else {
-        utilsInstance.sendTextMessage(sender, pageTokenForGoIndia, global.WELCOME_MESSAGE_GOINDIA);
+        utilsInstance.sendSpecificPayloadMessage(sender, pageTokenForGoIndia, global.GOINDIA_PATH, global.GOINDIA_MAIN_MENU);
       }
     }
-  }
+    if (event.postback) {
+      postbackJson = event.postback;
+      payload = postbackJson.payload
+      console.log(payload)
+      if (payload.indexOf(":") > -1) {
+        payload = postbackJson.payload.split(":");
+        payloadType = payload[0];
+        user = payload[1];
+        console.log(payloadType + user);
+        utilsInstance.sendSpecificPayloadMessage(sender, pageTokenForGoIndia, payloadType, user);
+      } else utilsInstance.sendSpecificPayloadMessage(sender, pageTokenForGoIndia, global.GOINDIA_PATH, payload);
+    }
+
+   }
   }
   res.sendStatus(200);
 });

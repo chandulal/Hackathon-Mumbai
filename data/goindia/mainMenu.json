@@ -1,0 +1,26 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"What do you want to do ?",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Book Flight",
+          "payload":"bookFlight"
+        },
+        {
+          "type":"postback",
+          "title":"Flight Status",
+          "payload":"flightStatus"
+        },
+        {
+          "type":"postback",
+          "title":"Check-in",
+          "payload":"checkIn"
+        }
+      ]
+    }
+  }
+}

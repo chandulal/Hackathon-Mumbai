@@ -1,5 +1,4 @@
 exports.WELCOME_MESSAGE = "Hello! Thanks for connecting with us over Messenger. For identification please enter your registered mobile number using: \n@mobile <mobile number> \n(eg. @mobile 1234567890)";
-exports.WELCOME_MESSAGE_GOINDIA = "Hello! Thanks for connecting with us over Messenger. For flight booking use: \n@book_flight <flightName> <date> <time> <bankName></bankName> \n(eg. @book_flight 27/05/2016 16:30 XYZBank)";
 exports.MOBILE_NUMBER_COMMAND = "@mobile";
 exports.OTP_COMMAND = "@otp";
 exports.TRANSFER_COMMAND = "@transfer";
@@ -13,6 +12,8 @@ exports.PAYMENT_PAYLOAD = "payment";
 exports.RECEIPTS_PAYLOAD = "receipts";
 exports.PAYEE_SUCCESS_PAYLOAD = "payeeSuccess";
 exports.RECHARGE_SUCCESS_PAYLOAD = "rechargeSuccess";
+exports.GOINDIA_MAIN_MENU = "mainMenu";
+exports.GOINDIA_PATH = "goindia";
 exports.PAYBILL_SUCCESS_PAYLOAD = "payBillSuccess";
 exports.MOBILE_NOT_REGISTERED_MESSAGE = "Your mobile number is not registered with us. Check your number and try again.";
 exports.OTP_MESSAGE = "We have sent and OTP to your mobile number. Please type OTP using: \n@otp <otp number> \n(eg. @otp 3243)";

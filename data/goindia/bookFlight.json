@@ -1,0 +1,21 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Select trip:",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"One way",
+          "payload":"oneWay"
+        },
+        {
+          "type":"postback",
+          "title":"Round Trip",
+          "payload":"roundTrip"
+        }
+      ]
+    }
+  }
+}
