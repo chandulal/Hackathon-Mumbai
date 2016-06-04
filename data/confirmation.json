@@ -1,0 +1,21 @@
+{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"GoIndia requested to pay 9722 INR for your flight 6E-965. Do you want to pay?",
+      "buttons":[
+        {
+          "type":"postback",
+          "title":"Yes",
+          "payload":"yes"
+        },
+        {
+          "type":"postback",
+          "title":"No",
+          "payload":"no"
+        }
+      ]
+    }
+  }
+}

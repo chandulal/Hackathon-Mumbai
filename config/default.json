@@ -8,6 +8,7 @@
   "receipts": "./data/receipts/",
   "payees": "./data/payees/",
   "goindia": "./data/goindia/",
+  "flight":"./data/goindia/flight/",
   "pay": "./data/pay/",
   "dataPath" : "./data/",
   "senderForBank":846683535438201,

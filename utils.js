@@ -79,6 +79,7 @@ var utils = function (){
         else if(otp.trim() === "11111"){
             self.sendTextMessage(sender, pageToken, global.OTP_ENTERED_MESSAGE)
             self.sendTextMessage(senderForGoIndia, pageTokenForGoIndia, global.GOINDIA_PAYMENT_RECEIVED_MESSAGE)
+            self.sendSpecificPayloadMessage(senderForGoIndia, pageTokenForGoIndia, global.GOINDIA_PATH, global.SUMMARY_PAYLOAD)
         }
         else self.sendTextMessage(sender, pageToken, global.OTP_INVALID_MESSAGE);
     };

@@ -1,0 +1,40 @@
+{
+  "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type": "receipt",
+      "recipient_name": "Chandu Kavar",
+      "order_number": "12345678901",
+      "currency": "INR",
+      "payment_method": "FB Messanger",
+      "order_url": "http://petersapparel.parseapp.com/order?order_id=123456",
+      "timestamp": "1428444852",
+      "elements": [
+        {
+          "title": "GO INDIA FLIGHT",
+          "subtitle": "6E-965 04:45 to 06:20",
+          "quantity": 1,
+          "price": 9722,
+          "currency": "INR",
+          "image_url": "https://entecity.com/news/files/2013/03/indigo-airlines-pictures.jpg"
+        }
+      ],
+      "summary": {
+        "subtotal": 9000.00,
+        "shipping_cost": 0.00,
+        "total_tax": 752.00,
+        "total_cost": 9722
+      },
+      "adjustments": [
+        {
+          "name": "New Customer Discount",
+          "amount": 20
+        },
+        {
+          "name": "10 Rs Off Coupon",
+          "amount": 10
+        }
+      ]
+    }
+  }
+}
