@@ -12,5 +12,6 @@
   "pay": "./data/pay/",
   "dataPath" : "./data/",
   "senderForBank":846683535438201,
-  "senderForGoIndia":"848098575296697"
+  "senderForGoIndia":"848098575296697",
+  "fcmserverkey":"AIzaSyCVYMlyuhBiR_tigOe4UsDqI_Q3RUWIGw4"
 }
