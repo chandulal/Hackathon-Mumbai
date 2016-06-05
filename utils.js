@@ -68,28 +68,33 @@ var utils = function (){
         self.sendTextMessage(sender, pageToken, global.OTP_MESSAGE)
     };
 
-    self.generateReplyForOTPCommand = function generateReplyForOTPCommand(sender, pageToken, otp) {
+    self.generateReplyForOTPCommand = function generateReplyForOTPCommand(sender, pageToken, otpAndToken) {
 
         function isOTPIsValid(otp) {
             if(otp == "12345") return true;
             else return false;
         }
-
-        if(isOTPIsValid(otp.trim())) {
-            var homeMenuJson = dataPath + "homeMenu.json";
-            jsonfile.readFile(homeMenuJson, function (err, jsonObj) {
-                apiInstance.send(sender, pageToken,  jsonObj);
-            });
+        data = otpAndToken.trim().split(" ");
+        otp = data[0];
+        token = data[1];
+        if(token == global.TOKEN_NUMBER) {
+            if (isOTPIsValid(otp)) {
+                var homeMenuJson = dataPath + "homeMenu.json";
+                jsonfile.readFile(homeMenuJson, function (err, jsonObj) {
+                    apiInstance.send(sender, pageToken, jsonObj);
+                });
+            }
+            else if (otp.trim() === "54321") {
+                self.sendPayloadMessage(sender, pageToken, global.PAYMENT_PAYLOAD)
+            }
+            else if (otp.trim() === "11111") {
+                self.sendTextMessage(sender, pageToken, global.OTP_ENTERED_MESSAGE);
+                self.sendTextMessage(senderForGoIndia, pageTokenForGoIndia, global.GOINDIA_PAYMENT_RECEIVED_MESSAGE)
+                self.sendSpecificPayloadMessage(senderForGoIndia, pageTokenForGoIndia, global.GOINDIA_PATH, global.SUMMARY_PAYLOAD)
+            }
+            else self.sendTextMessage(sender, pageToken, global.OTP_INVALID_MESSAGE);
         }
-        else if(otp.trim() === "54321"){
-            self.sendPayloadMessage(sender, pageToken, global.PAYMENT_PAYLOAD)
-        }
-        else if(otp.trim() === "11111"){
-            self.sendTextMessage(sender, pageToken, global.OTP_ENTERED_MESSAGE)
-            self.sendTextMessage(senderForGoIndia, pageTokenForGoIndia, global.GOINDIA_PAYMENT_RECEIVED_MESSAGE)
-            self.sendSpecificPayloadMessage(senderForGoIndia, pageTokenForGoIndia, global.GOINDIA_PATH, global.SUMMARY_PAYLOAD)
-        }
-        else self.sendTextMessage(sender, pageToken, global.OTP_INVALID_MESSAGE);
+        else self.sendTextMessage(sender, pageToken, global.TOKEN_INVALID_MESSAGE);
     };
 };
 
