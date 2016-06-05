@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var conf = require('config');
 var utils = require("./utils.js");
 var global = require('./global.js')
+var math = require('mathjs');
 
 var app = express();
 module.exports = app;
@@ -26,8 +27,6 @@ var FCM = require('fcm').FCM;
 
 var apiKey = conf.get('fcmserverkey');
 var fcm = new FCM(apiKey);
-
-
 
 // //my sql connection
 // var mysql      = require('mysql');
@@ -58,13 +57,14 @@ var fcm = new FCM(apiKey);
 
 
 var message = {
-    registration_id:'dHXBX86Nzso:APA91bFpOe8EClTbsKqiPw6jm7VTWKHEh5uVXSOwPTUWTxGeP_Z7-u0Tjil0J6CxZYvynv613R3ZIhyB0MLDCmzKBiKc40v9KOmcYyNMa2rdljquAxA77gXikQTv2dzyIeKWWOPSwL_z', // required
+    registration_id: global.DEVICE_ID,
     collapse_key: 'otp_key', 
-    'data.otp': 'OTP'  // here add random otp what you want 
+    'data.otp': global.TOKEN_NUMBER
 };
 
 // API - to send otp to specific device , specified in registrationid
 app.get("/sendMesssage",function(req,res){
+    global.TOKEN_NUMBER = math.randomInt(10000,1000000);
     fcm.send(message, function(err, messageId){
         if (err) {
             console.log("Something has gone wrong!");
@@ -75,13 +75,11 @@ app.get("/sendMesssage",function(req,res){
 });
 
 
- // android app will send deviceid on this API - that deviceid is used for fining on which device we want to send otp
+ // android app will send deviceid on this API - that deviceid is used for finding on which device we want to send otp
 app.post("/deviceID",function(req,res){
-  console.log(req.param('deviceID'));
-   // store this token to perticular place
+   global.DEVICE_ID= req.param('deviceID');
     res.send(req.param('username')+" deviceID saved sucessfully");
 });
-
 
 
 app.get('/webhook/', function (req, res) {

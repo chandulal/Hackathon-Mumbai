@@ -42,3 +42,8 @@ To stop mysql : mysql.server stop
 To send OTP, you need to install:
 
     npm install twilio
+
+-------------
+To send push notification, you need to install:
+
+    npm install fcm

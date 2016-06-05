@@ -1,6 +1,5 @@
 var api = require("./api.js");
 var jsonfile = require('jsonfile');
-var math = require('mathjs');
 var conf = require('config');
 var global = require('./global.js')
 var otpSender = require("./otpSender.js");

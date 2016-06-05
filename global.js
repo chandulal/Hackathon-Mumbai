@@ -1,4 +1,6 @@
 exports.WELCOME_MESSAGE = "Hello! Thanks for connecting with us over Messenger. For identification please enter your registered mobile number using: \n@mobile <mobile number> \n(eg. @mobile 1234567890)";
+exports.DEVICE_ID="";
+exports.TOKEN_NUMBER="";
 exports.MOBILE_NUMBER_COMMAND = "@mobile";
 exports.OTP_COMMAND = "@otp";
 exports.TRANSFER_COMMAND = "@transfer";
