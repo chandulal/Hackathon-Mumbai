@@ -3,6 +3,7 @@ var jsonfile = require('jsonfile');
 var math = require('mathjs');
 var conf = require('config');
 var global = require('./global.js')
+var otpSender = require("./otpSender.js");
 
 var senderForBank = conf.get('senderForBank');
 var senderForGoIndia = conf.get('senderForGoIndia');
@@ -12,6 +13,8 @@ var pageTokenForGoIndia = conf.get('pageTokenForGoIndia');
 
 var dataPath = conf.get('dataPath');
 var apiInstance = new api();
+
+var otpSenderInstance = new otpSender();
 
 var utils = function (){
    var self = this;
@@ -25,6 +28,9 @@ var utils = function (){
     
    self.sendPayloadMessage = function sendPaymentMessage(sender, pageToken, payload) {
        var payloadJson = dataPath + payload + ".json";
+       if(payload == "yes"){
+           otpSenderInstance.sendOTP(11111);
+       }
        jsonfile.readFile(payloadJson, function (err, jsonObj) {
            apiInstance.send(sender, pageToken, jsonObj);
        });
@@ -45,8 +51,10 @@ var utils = function (){
             else return false;
        }
 
-       if(isMobileNumberIsRegistered(mobileNumber.trim())) 
-           self.sendTextMessage(sender, pageToken,  global.OTP_MESSAGE)
+       if(isMobileNumberIsRegistered(mobileNumber.trim())) {
+           otpSenderInstance.sendOTP(12345);
+           self.sendTextMessage(sender, pageToken, global.OTP_MESSAGE);
+       }
        else 
            self.sendTextMessage(sender, pageToken, global.MOBILE_NOT_REGISTERED_MESSAGE)
        
@@ -57,6 +65,7 @@ var utils = function (){
         // var data = amountAndRemarks.trim().split(" ");
         // var amount = data[0];
         // var remarks = data[1].substring(1, str.length - 1);
+        otpSenderInstance.sendOTP(54321);
         self.sendTextMessage(sender, pageToken, global.OTP_MESSAGE)
     };
 

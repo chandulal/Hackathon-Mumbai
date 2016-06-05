@@ -38,3 +38,7 @@ To start mysql : mysql.server start
 To stop mysql : mysql.server stop
 
 -------------
+
+To send OTP, you need to install:
+
+    npm install twilio
