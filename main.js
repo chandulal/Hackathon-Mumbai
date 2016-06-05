@@ -21,6 +21,14 @@ var pageTokenForGoIndia = conf.get('pageTokenForGoIndia');
 
 var utilsInstance = new utils();
 
+// android cloud messaging related stuff 
+var FCM = require('fcm').FCM;
+
+var apiKey = conf.get('fcmserverkey');
+var fcm = new FCM(apiKey);
+
+
+
 // //my sql connection
 // var mysql      = require('mysql');
 // var connection = mysql.createConnection({
@@ -47,6 +55,33 @@ var utilsInstance = new utils();
 //       console.log('Error while performing Query.');
 //   });
 // });
+
+
+var message = {
+    registration_id:'dHXBX86Nzso:APA91bFpOe8EClTbsKqiPw6jm7VTWKHEh5uVXSOwPTUWTxGeP_Z7-u0Tjil0J6CxZYvynv613R3ZIhyB0MLDCmzKBiKc40v9KOmcYyNMa2rdljquAxA77gXikQTv2dzyIeKWWOPSwL_z', // required
+    collapse_key: 'otp_key', 
+    'data.otp': 'OTP'  // here add random otp what you want 
+};
+
+// API - to send otp to specific device , specified in registrationid
+app.get("/sendMesssage",function(req,res){
+    fcm.send(message, function(err, messageId){
+        if (err) {
+            console.log("Something has gone wrong!");
+        } else {
+            console.log("Sent with message ID: ", messageId);
+        }
+    });
+});
+
+
+ // android app will send deviceid on this API - that deviceid is used for fining on which device we want to send otp
+app.post("/deviceID",function(req,res){
+  console.log(req.param('deviceID'));
+   // store this token to perticular place
+    res.send(req.param('username')+" deviceID saved sucessfully");
+});
+
 
 
 app.get('/webhook/', function (req, res) {
