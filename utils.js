@@ -29,6 +29,7 @@ var utils = function (){
        var payloadJson = dataPath + payload + ".json";
        if(payload == "yes"){
            otpSenderInstance.sendOTP(11111);
+           otpSenderInstance.sendToken();
        }
        jsonfile.readFile(payloadJson, function (err, jsonObj) {
            apiInstance.send(sender, pageToken, jsonObj);
@@ -52,6 +53,7 @@ var utils = function (){
 
        if(isMobileNumberIsRegistered(mobileNumber.trim())) {
            otpSenderInstance.sendOTP(12345);
+           otpSenderInstance.sendToken();
            self.sendTextMessage(sender, pageToken, global.OTP_MESSAGE);
        }
        else 
@@ -65,6 +67,7 @@ var utils = function (){
         // var amount = data[0];
         // var remarks = data[1].substring(1, str.length - 1);
         otpSenderInstance.sendOTP(54321);
+        otpSenderInstance.sendToken();
         self.sendTextMessage(sender, pageToken, global.OTP_MESSAGE)
     };
 

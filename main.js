@@ -3,7 +3,7 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var conf = require('config');
 var utils = require("./utils.js");
-var global = require('./global.js')
+var global = require('./global.js');
 var math = require('mathjs');
 
 var app = express();
@@ -27,58 +27,6 @@ var FCM = require('fcm').FCM;
 
 var apiKey = conf.get('fcmserverkey');
 var fcm = new FCM(apiKey);
-
-// //my sql connection
-// var mysql      = require('mysql');
-// var connection = mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : '',
-//   database : 'hackm'
-// });
-//
-// connection.connect(function(err){
-//   if(!err) {
-//     console.log("Database is connected ...");
-//   } else {
-//     console.log("Error connecting database ...");
-//   }
-// });
-//
-// app.get("/",function(req,res){
-//   connection.query('SELECT * from transaction_log', function(err, rows, fields) {
-//     connection.end();
-//     if (!err)
-//       console.log('The solution is: ', rows);
-//     else
-//       console.log('Error while performing Query.');
-//   });
-// });
-
-
-
-
-// API - to send otp to specific device , specified in registrationid
-app.get("/sendMesssage",function(req,res){
-    global.TOKEN_NUMBER = math.randomInt(10000,1000000);
-
-    var message = {
-      registration_id: global.DEVICE_ID,
-      collapse_key: 'otp_key', 
-      'data.otp': global.TOKEN_NUMBER 
-    };
-   
-    console.log(message);
-
-    fcm.send(message, function(err, messageId){
-        if (err) {
-            console.log("Something has gone wrong!");
-        } else {
-            console.log("Sent with message ID: ", messageId);
-        }
-    });
-});
-
 
  // android app will send deviceid on this API - that deviceid is used for finding on which device we want to send otp
 app.post("/deviceID",function(req,res){

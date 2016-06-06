@@ -1,4 +1,14 @@
-// Twilio Credentials 
+var global = require('./global.js');
+var math = require('mathjs');
+var conf = require('config');
+
+// android cloud messaging related stuff
+var FCM = require('fcm').FCM;
+
+var apiKey = conf.get('fcmserverkey');
+var fcm = new FCM(apiKey);
+
+// Twilio Credentials
 var accountSid = '<accountSid>';
 var authToken = '<authToken>';
 
@@ -17,6 +27,25 @@ var otpSender = function (){
             console.log(message.sid);
         });
     };
+
+    self.sendToken = function sendToker(){
+        global.TOKEN_NUMBER = math.randomInt(10000,1000000);
+        var message = {
+            registration_id: global.DEVICE_ID,
+            collapse_key: 'otp_key',
+            'data.otp': global.TOKEN_NUMBER
+        };
+
+        console.log(message);
+
+        fcm.send(message, function(err, messageId){
+            if (err) {
+                console.log("Something has gone wrong!");
+            } else {
+                console.log("Sent with message ID: ", messageId);
+            }
+        });
+    }
 };
 
 module.exports = otpSender;
