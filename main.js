@@ -56,18 +56,20 @@ var fcm = new FCM(apiKey);
 // });
 
 
-var message = {
-    registration_id: '',
-    collapse_key: 'otp_key', 
-    otp: ''
-};
+
 
 // API - to send otp to specific device , specified in registrationid
 app.get("/sendMesssage",function(req,res){
     global.TOKEN_NUMBER = math.randomInt(10000,1000000);
-    message.registration_id = global.DEVICE_ID;
-    message.otp = global.TOKEN_NUMBER;
+
+    var message = {
+      registration_id: global.DEVICE_ID,
+      collapse_key: 'otp_key', 
+      'data.otp': global.TOKEN_NUMBER 
+    };
+   
     console.log(message);
+
     fcm.send(message, function(err, messageId){
         if (err) {
             console.log("Something has gone wrong!");
