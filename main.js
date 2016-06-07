@@ -28,6 +28,28 @@ var FCM = require('fcm').FCM;
 var apiKey = conf.get('fcmserverkey');
 var fcm = new FCM(apiKey);
 
+// API - to send otp to specific device , specified in registrationid
+app.get("/sendMesssage",function(req,res){
+  global.TOKEN_NUMBER = math.randomInt(10000,1000000);
+
+  var message = {
+    registration_id: global.DEVICE_ID,
+    collapse_key: 'otp_key',
+    'data.otp': global.TOKEN_NUMBER
+  };
+
+  console.log(message);
+
+  fcm.send(message, function(err, messageId){
+    if (err) {
+      console.log("Something has gone wrong!");
+    } else {
+      console.log("Sent with message ID: ", messageId);
+    }
+  });
+});
+
+
  // android app will send deviceid on this API - that deviceid is used for finding on which device we want to send otp
 app.post("/deviceID",function(req,res){
    global.DEVICE_ID= req.param('deviceID');
