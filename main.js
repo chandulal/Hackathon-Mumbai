@@ -10,7 +10,9 @@ var app = express();
 module.exports = app;
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.listen(4567);
+
+app.set('port', (process.env.PORT || 4567));
+app.listen(app.get('port'));
 
 var apiToken = conf.get('apiToken');
 
