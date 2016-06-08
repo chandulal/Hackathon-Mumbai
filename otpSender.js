@@ -9,8 +9,8 @@ var apiKey = conf.get('fcmserverkey');
 var fcm = new FCM(apiKey);
 
 // Twilio Credentials
-var accountSid = '<accountSid>';
-var authToken = '<authToken>';
+var accountSid = 'AC84daa8c77214b516011fe59b15c101f0';
+var authToken = '15e6d784a5a24e98d505d94e64f2adaf';
 
 //require the Twilio module and create a REST client 
 var client = require('twilio')(accountSid, authToken);
@@ -20,8 +20,8 @@ var otpSender = function (){
     self.sendOTP = function sendOTP(otp) {
         console.log(otp);
         client.messages.create({
-            to: "<to>",
-            from: "<from>",
+            to: "+919545644045",
+            from: "+12562179791",
             body: "Hello, " + otp + " is your OTP for your transaction.",
         }, function(err, message) {
             console.log(message.sid);
