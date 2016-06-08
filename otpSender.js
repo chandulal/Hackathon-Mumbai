@@ -9,8 +9,8 @@ var apiKey = conf.get('fcmserverkey');
 var fcm = new FCM(apiKey);
 
 // Twilio Credentials
-var accountSid = 'AC84daa8c77214b516011fe59b15c101f0';
-var authToken = '15e6d784a5a24e98d505d94e64f2adaf';
+var accountSid = conf.get('accountSid');
+var authToken = conf.get('authToken');
 
 //require the Twilio module and create a REST client 
 var client = require('twilio')(accountSid, authToken);

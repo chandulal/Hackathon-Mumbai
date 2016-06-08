@@ -13,5 +13,7 @@
   "dataPath" : "./data/",
   "senderForBank":846683535438201,
   "senderForGoIndia":"848098575296697",
-  "fcmserverkey":"AIzaSyCVYMlyuhBiR_tigOe4UsDqI_Q3RUWIGw4"
+  "fcmserverkey":"AIzaSyCVYMlyuhBiR_tigOe4UsDqI_Q3RUWIGw4",
+  "accountSid":"'AC84daa8c77214b516011fe59b15c101f0'",
+  "authToken":"15e6d784a5a24e98d505d94e64f2adaf"
 }
