@@ -47,3 +47,14 @@ To send OTP, you need to install:
 To send push notification, you need to install:
 
     npm install fcm
+
+-------------
+deployment steps in heroku:
+1. need to create account in heroku
+2. need to install heroku webkit
+3. create Procfile and add run command. for node js we have added web: node main.js
+4. run: heroku login
+5. go to project directory and run: heroku create
+6. run: git push heroku master and heroku ps:scale web=1
+7. run: heroku open to see your app
+8. for logs run : heroku logs --tail
